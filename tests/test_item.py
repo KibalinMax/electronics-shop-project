@@ -2,6 +2,12 @@
 import pytest
 from src.item import Item
 
+def test_item():
+    item_pr_0 = Item("Iphone", 90000, 5)
+    assert item_pr_0.name == "Iphone"
+    assert item_pr_0.price == 90000
+    assert item_pr_0.quantity == 5
+
 def test_calculate_total_price():
     item_pr_1 = Item("Iphone", 100000, 10)
     total_price = item_pr_1.calculate_total_price()
