@@ -18,3 +18,7 @@ def test_item_apply_discount():
     item_pr_2.pay_rate = 0.5
     item_pr_2.apply_discount()
     assert item_pr_2.price == 10000
+def test_instantiate_from_csv():
+    Item.instantiate_from_csv()
+    assert len(Item.all) == 8
+
