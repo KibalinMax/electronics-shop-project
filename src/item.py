@@ -59,5 +59,5 @@ class Item:
                 cls(name, price, quantity)
 
     @staticmethod
-    def string_to_number():
-        pass
+    def string_to_number(self):
+        return int(self.price), int(self.quantity)
