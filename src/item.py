@@ -60,4 +60,5 @@ class Item:
 
     @staticmethod
     def string_to_number(cls):
+        """Статический метод, возвращающий число из числа-строки"""
         return int(cls.price), int(cls.quantity)
