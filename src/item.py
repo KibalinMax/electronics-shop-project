@@ -1,6 +1,7 @@
 import csv
 import os
 
+
 class Item:
     """
     Класс для представления товара в магазине.
@@ -16,7 +17,7 @@ class Item:
         :param price: Цена за единицу товара.
         :param quantity: Количество товара в магазине.
         """
-        self.name = name
+        self.__name = name
         self.price = price
         self.quantity = quantity
 
@@ -35,6 +36,7 @@ class Item:
         Применяет установленную скидку для конкретного товара.
         """
         self.price *= self.pay_rate
+
     @property
     def name(self):
         return self.__name
@@ -53,12 +55,13 @@ class Item:
         """
         with open(os.path.join(os.path.dirname(__file__), 'items.csv'), newline='') as csvfile:
             reader = csv.DictReader(csvfile)
-
+            cls.all.clear()
             for row in reader:
-                name, price, quantity = row['name'], row['price'], ['quantity']
+                name, price, quantity = row['name'], float(row['price']), int(row['quantity'])
                 cls(name, price, quantity)
 
     @staticmethod
-    def string_to_number(cls):
+    def string_to_number(value):
         """Статический метод, возвращающий число из числа-строки"""
-        return int(cls.price), int(cls.quantity)
+        number = float(value)
+        return int(number)
